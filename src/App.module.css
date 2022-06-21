@@ -1,0 +1,18 @@
+.App {
+  text-align: center;
+  background-image: url('./assets/dummy.jpg');
+  width: 100vw;
+  height: 100vh;
+}
+
+.playerCards {
+  display: flex;
+  justify-content: space-between;
+  position: absolute;
+  top: 20vh;
+  width: 100vw;
+}
+
+.playerCard {
+  margin-bottom: 16px;
+}

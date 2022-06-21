@@ -1,0 +1,6 @@
+.gauge {
+  width: var(--current-value);
+  height: 24px;
+  background-color: orange;
+  border-radius: 4px;
+}
