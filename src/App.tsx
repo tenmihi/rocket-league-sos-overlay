@@ -1,5 +1,7 @@
 import { Component, For } from 'solid-js';
 
+import dummyImage from './assets/dummy.jpg'
+
 import styles from './App.module.css';
 import PlayerCard from './components/PlayerCard';
 
@@ -10,8 +12,10 @@ const App: Component = () => {
   const sosReceiver = new SOSReceiver('localhost', 49122)
   sosReceiver.connect()
 
+  const isDev = import.meta.env.DEV
+
   return (
-    <div class={styles.App}>
+    <div class={styles.App} style={{ 'background-image': isDev ? `url(${dummyImage})` : "" }}>
       <div class={styles.playerCards}>
         <div>
           <For each={blueTeamPlayers()}>{(player) => 
