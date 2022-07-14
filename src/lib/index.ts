@@ -52,6 +52,8 @@ export class SOSReceiver {
   private _onMessage(event: any) {
     const jsonData = JSON.parse(event.data)
 
+    console.log(jsonData)
+
     if (jsonData.event == 'game:update_state') {
       const data = jsonData.data as UpdateStateEvent
 

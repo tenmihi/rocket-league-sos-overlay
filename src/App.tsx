@@ -13,6 +13,8 @@ const App: Component = () => {
   sosReceiver.connect()
 
   const isDev = import.meta.env.DEV
+  
+  console.log(import.meta.env)
 
   return (
     <div class={styles.App} style={{ 'background-image': isDev ? `url(${dummyImage})` : "" }}>
