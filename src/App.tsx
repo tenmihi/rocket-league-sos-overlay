@@ -5,16 +5,13 @@ import dummyImage from './assets/dummy.jpg'
 import styles from './App.module.css';
 import PlayerCard from './components/PlayerCard';
 
-import { blueTeamPlayers, orangeTeamPlayers, SOSReceiver } from './lib/index'
+import { blueTeamPlayers, connectToRocketLeague, orangeTeamPlayers } from './lib/index'
 
 const App: Component = () => {
 
-  const sosReceiver = new SOSReceiver('localhost', 49122)
-  sosReceiver.connect()
+  connectToRocketLeague()
 
   const isDev = import.meta.env.DEV
-  
-  console.log(import.meta.env)
 
   return (
     <div class={styles.App} style={{ 'background-image': isDev ? `url(${dummyImage})` : "" }}>
