@@ -5,13 +5,14 @@ import dummyImage from './assets/dummy.jpg'
 import styles from './App.module.css';
 import PlayerCard from './components/PlayerCard';
 
-import { blueTeamPlayers, connectToRocketLeague, orangeTeamPlayers } from './lib/index'
+import { visibleFlag, blueTeamPlayers, connectToRocketLeague, orangeTeamPlayers } from './lib/index'
 
 const App: Component = () => {
 
   connectToRocketLeague()
 
-  const isDev = import.meta.env.DEV
+  // const isDev = import.meta.env.DEV
+  const isDev = false
 
   return (
     <div class={styles.App} style={{ 'background-image': isDev ? `url(${dummyImage})` : "" }}>

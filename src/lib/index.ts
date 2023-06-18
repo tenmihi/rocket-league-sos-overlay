@@ -34,6 +34,6 @@ function onMessage(event: any) {
 
 export function connectToRocketLeague() {
   const sosReceiver = new WebSocketSOSReceiver()
-  sosReceiver.setOnMessage(onMessage)
   sosReceiver.connect()
+  sosReceiver.setOnMessage(onMessage)
 }
