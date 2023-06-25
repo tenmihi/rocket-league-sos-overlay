@@ -1,30 +1,36 @@
 import { createSignal } from 'solid-js'
-import { Player, UpdateStateEvent } from './types'
+import { Player, SOSMessage, UpdateStateEvent } from './types'
 import { WebSocketSOSReceiver } from './sos-receiver/websocket'
+import { DebugSOSReceiver } from './sos-receiver/debug'
 
-export const [blueTeamPlayers, setBlueTeamPlayers] = createSignal([] as Player[])
-export const [orangeTeamPlayers, setOrangeTeamPlayers] = createSignal([] as Player[])
+export const [blueTeamPlayers, setBlueTeamPlayers] = createSignal(
+  [] as Player[]
+)
+export const [orangeTeamPlayers, setOrangeTeamPlayers] = createSignal(
+  [] as Player[]
+)
 export const [visibleFlag, setVisibleFlag] = createSignal(false)
 
-function onMessage(event: any) {
-  const jsonData = JSON.parse(event.data)
+function onMessage(message: SOSMessage) {
+  console.log(message)
 
-  console.log(jsonData)
-
-  if (jsonData.event == 'game:update_state') {
-    const data = jsonData.data as UpdateStateEvent
+  if (message.event == 'game:update_state') {
+    const data = message.data as UpdateStateEvent
 
     if (data.game.hasWinner) {
       setVisibleFlag(false)
-      return 
+      return
     }
 
     setVisibleFlag(true)
 
-    const _blueTeamPlayers = [], _orangeTeamPlayers = []
+    const _blueTeamPlayers = [],
+      _orangeTeamPlayers = []
     for (let playerName in data.players) {
       const player = data.players[playerName]
-      player.team == 0 ? _blueTeamPlayers.push(player) : _orangeTeamPlayers.push(player)
+      player.team == 0
+        ? _blueTeamPlayers.push(player)
+        : _orangeTeamPlayers.push(player)
     }
 
     setBlueTeamPlayers(_blueTeamPlayers)
@@ -33,7 +39,13 @@ function onMessage(event: any) {
 }
 
 export function connectToRocketLeague() {
-  const sosReceiver = new WebSocketSOSReceiver()
+  let sosReceiver
+  if (import.meta.env.VITE_SOS_DEBUG) {
+    console.info('[sos-overlay] use debug receiver')
+    sosReceiver = new DebugSOSReceiver()
+  } else {
+    sosReceiver = new WebSocketSOSReceiver()
+  }
   sosReceiver.connect()
   sosReceiver.setOnMessage(onMessage)
 }

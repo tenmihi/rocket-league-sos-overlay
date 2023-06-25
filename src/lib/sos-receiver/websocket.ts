@@ -18,7 +18,10 @@ export class WebSocketSOSReceiver implements SOSReceiver {
 
   public setOnMessage(onMessage: (event: SOSMessage) => void): void {
     if (!this.webSocketConnection) throw Error('WebSocket connection not established')
-    this.webSocketConnection.addEventListener('message', onMessage as unknown as EventListenerOrEventListenerObject)
+    this.webSocketConnection.addEventListener('message', (event: any) => {
+      const sosMessage = JSON.parse(event.data) as SOSMessage
+      onMessage(sosMessage)
+    })
     
   }
 

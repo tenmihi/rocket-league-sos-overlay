@@ -7,6 +7,7 @@ export type Player = {
 
 export type Game ={
   hasWinner: boolean
+  teams: Team[]
 }
 
 // idx => 0: blue, 1: orange
@@ -19,11 +20,12 @@ export type UpdateStateEvent = {
   players: {
     [playerName: string] : Player
   }
-  teams: Team[]
   game: Game
 }
 
+export type SOSEventType = 'game:update_state'
+
 export type SOSMessage = {
-  event: 'game:update_state',
+  event: SOSEventType,
   data: UpdateStateEvent
 }
