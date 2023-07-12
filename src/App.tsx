@@ -15,8 +15,7 @@ import {
 const App: Component = () => {
   connectToRocketLeague()
 
-  // const isDev = import.meta.env.DEV
-  const isDev = false
+  const isDev = import.meta.env.DEV
 
   return (
     <div

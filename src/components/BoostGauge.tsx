@@ -1,6 +1,6 @@
-import { Component } from "solid-js"
+import { Component } from 'solid-js'
 
-import style from './BoostGauge.module.css'
+import style from './BoostGauge.module.scss'
 
 type Prop = {
   current: number
@@ -9,7 +9,11 @@ type Prop = {
 const BoostGauge: Component<Prop> = ({ current }) => {
   return (
     <>
-      <div class={style.gauge} style={{ '--current-value': `${current}%` }}></div>
+      <span
+        class={style.gauge}
+        style={{ '--current-value': `${current}%` }}
+      ></span>
+      <span>{current}</span>
     </>
   )
 }

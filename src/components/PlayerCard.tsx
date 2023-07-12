@@ -1,5 +1,5 @@
-import { Component, JSX } from "solid-js";
-import BoostGauge from "./BoostGauge";
+import { Component, JSX } from 'solid-js'
+import BoostGauge from './BoostGauge'
 
 import style from './PlayerCard.module.css'
 
@@ -10,15 +10,14 @@ type Param = {
 }
 
 const PlayerCard: Component<Param> = ({ userName, boost, className }) => {
-  const classes = `${style.playerCard} ${className}`
+  const rootClasses = `${style.playerCard} ${className}`
 
   return (
-    <div class={classes}>
-      <div class={style.header}>
+    <div class={rootClasses}>
+      <div class={style.userName}>
         <span>{userName}</span>
-        <span>{boost}</span>
       </div>
-      <BoostGauge current={boost}/>
+      <BoostGauge current={boost} />
     </div>
   )
 }

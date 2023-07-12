@@ -1,0 +1,12 @@
+@import '../scss/color';
+
+.gauge {
+  width: var(--current-value);
+  height: 24px;
+  background-color: lighten($orange, 15%);
+  border-radius: 4px;
+  border: solid 3px white;
+
+  display: flex;
+  flex-direction: column;
+}

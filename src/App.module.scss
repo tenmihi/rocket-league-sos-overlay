@@ -15,7 +15,11 @@
 
   .playerCard {
     margin-bottom: 16px;
-    border: 1px solid;
-    background: linear-gradient(0, darken($orange, 30%), darken($orange, 15%));
+    // border: 1px solid;
+    background: linear-gradient(
+      160deg,
+      rgba($orange, 0.9),
+      rgba(darken($orange, 30%), 0.9) 80%
+    );
   }
 }
