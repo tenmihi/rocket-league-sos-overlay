@@ -1,12 +1,23 @@
 @import '../scss/color';
 
-.gauge {
-  width: var(--current-value);
-  height: 24px;
-  background-color: lighten($orange, 15%);
-  border-radius: 4px;
-  border: solid 3px white;
-
+.boostGauge {
   display: flex;
-  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+
+  .gauge {
+    width: var(--current-value);
+    height: 24px;
+    background-color: lighten($orange, 15%);
+    border-radius: 4px;
+    border: solid 3px white;
+
+    display: flex;
+    flex-direction: column;
+  }
+
+  .number {
+    color: white;
+    font-size: 1.5vw;
+  }
 }

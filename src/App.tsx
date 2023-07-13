@@ -26,22 +26,14 @@ const App: Component = () => {
         <div>
           <For each={blueTeamPlayers()}>
             {(player) => (
-              <PlayerCard
-                className={styles.playerCard}
-                userName={player.name}
-                boost={player.boost}
-              />
+              <PlayerCard userName={player.name} boost={player.boost} />
             )}
           </For>
         </div>
         <div>
           <For each={orangeTeamPlayers()}>
             {(player) => (
-              <PlayerCard
-                className={styles.playerCard}
-                userName={player.name}
-                boost={player.boost}
-              />
+              <PlayerCard userName={player.name} boost={player.boost} />
             )}
           </For>
         </div>

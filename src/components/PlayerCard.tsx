@@ -1,19 +1,16 @@
 import { Component, JSX } from 'solid-js'
 import BoostGauge from './BoostGauge'
 
-import style from './PlayerCard.module.css'
+import style from './PlayerCard.module.scss'
 
 type Param = {
   userName: string
   boost: number
-  className: string
 }
 
-const PlayerCard: Component<Param> = ({ userName, boost, className }) => {
-  const rootClasses = `${style.playerCard} ${className}`
-
+const PlayerCard: Component<Param> = ({ userName, boost }) => {
   return (
-    <div class={rootClasses}>
+    <div class={style.playerCard}>
       <div class={style.userName}>
         <span>{userName}</span>
       </div>

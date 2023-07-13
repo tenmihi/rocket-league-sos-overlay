@@ -1,3 +1,5 @@
+@import '../scss/_color';
+
 .playerCard {
   width: 15vw;
   padding: 16px 32px 24px;
@@ -8,6 +10,13 @@
   display: flex;
   flex-direction: column;
   font-size: 32px;
+
+  margin-bottom: 16px;
+  background: linear-gradient(
+    160deg,
+    rgba($orange, 1),
+    rgba(darken($orange, 30%), 0.9) 80%
+  );
 }
 
 .userName {
@@ -15,5 +24,5 @@
   display: flex;
   flex-direction: row;
   justify-content: space-between;
-  margin-bottom: 16px;
+  margin-bottom: 8px;
 }

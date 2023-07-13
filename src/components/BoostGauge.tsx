@@ -8,13 +8,13 @@ type Prop = {
 
 const BoostGauge: Component<Prop> = ({ current }) => {
   return (
-    <>
+    <div class={style.boostGauge}>
       <span
         class={style.gauge}
         style={{ '--current-value': `${current}%` }}
       ></span>
-      <span>{current}</span>
-    </>
+      <span class={style.number}>{current}</span>
+    </div>
   )
 }
 
